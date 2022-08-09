@@ -20,6 +20,21 @@ public class Main {
             System.out.println("Установите облегченную версию приложения для Android по ссылке");
         }
     }
+
+    public static int delivery(int deliveryDistance) {
+        int dayDelivery = 0;
+        boolean dis20 = deliveryDistance < 20;
+        boolean dis2060 = deliveryDistance >= 20 && deliveryDistance <= 60;
+        boolean dis60 = deliveryDistance > 60 && deliveryDistance <= 100;
+        if (dis20) {
+            dayDelivery += 1;
+        } else if (dis2060) {
+            dayDelivery += 2;
+        } else if (dis60) {
+            dayDelivery += 3;
+        }
+        return dayDelivery;
+    }
     public static void main(String[] args) {
 
 //      1 Задание
@@ -32,5 +47,11 @@ public class Main {
         int yearOS = LocalDate.now().getYear();
         int clientOS = 1;
         OS(clientOS, yearOS);
+
+//      3 Задание
+
+        int deliveryDistance = 95;
+        int dayDelivery = delivery(deliveryDistance);
+        System.out.println("Потребуется дней: " + dayDelivery);
     }
 }
